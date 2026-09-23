@@ -6,7 +6,7 @@
     <meta name="description" content="Website Biodata & Portofolio Nazhwa Sava Azahra - Mahasiswa Pendidikan Ilmu Komputer Universitas Pendidikan Indonesia (UPI)">
     <meta name="keywords" content="Nazhwa Sava Azahra, Biodata Nazhwa, UPI, Pendidikan Ilmu Komputer, Portfolio">
     <meta name="author" content="Nazhwa Sava Azahra">
-    <title>Nazhwa Sava Azahra | Official Portfolio & Biodata</title>
+    <title>Nazhwa Sava Azahra | Home • Official Portfolio & Biodata</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
 </head>
-<body>
+<body class="page-fade-in">
     <!-- Ambient Background Effects -->
     <div class="ambient-glow glow-top"></div>
     <div class="ambient-glow glow-bottom"></div>
@@ -32,7 +32,7 @@
     <!-- Navigation Header -->
     <header class="header" id="header">
         <nav class="navbar">
-            <a href="#home" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-sparkle">✦</span>
                 <span class="logo-text">Nazhwa<span class="accent-dot">.</span></span>
             </a>
@@ -40,24 +40,23 @@
             <div class="nav-menu" id="navMenu">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#home" class="nav-link active" data-section="home">Home</a>
+                        <a href="index.html" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about" class="nav-link" data-section="about">About</a>
+                        <a href="about.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#documentation" class="nav-link" data-section="documentation">Moments</a>
+                        <a href="moments.html" class="nav-link">Moments</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
                     </li>
                 </ul>
             </div>
 
             <div class="nav-actions">
-                <a href="#contact" class="btn-nav">
+                <a href="contact.html" class="btn-nav">
                     <span>Let's Talk</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
                     <span class="bar bar-1"></span>
@@ -68,7 +67,7 @@
     </header>
 
     <main>
-        <!-- HERO SECTION -->
+        <!-- HERO SECTION WITH CONNECTED INTERACTIVE LANYARD -->
         <section class="hero" id="home">
             <div class="hero-container">
                 <div class="hero-text-col">
@@ -88,13 +87,11 @@
                     </p>
 
                     <div class="hero-buttons animate-fade-delay-3">
-                        <a href="#about" class="btn btn-primary">
+                        <a href="about.html" class="btn btn-primary">
                             <span>Jelajahi Biodata</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
-                        <a href="#documentation" class="btn btn-secondary">
+                        <a href="moments.html" class="btn btn-secondary">
                             <span>Galeri Dokumentasi</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                         </a>
                     </div>
 
@@ -117,373 +114,136 @@
                     </div>
                 </div>
 
+                <!-- HERO VISUAL: PHYSICALLY CONNECTED LANYARD -->
                 <div class="hero-visual-col animate-fade-delay-2">
-                    <div class="profile-card-wrapper">
-                        <div class="profile-glow"></div>
-                        <div class="profile-frame">
-                            <img src="images/foto5.jpeg" alt="Foto Nazhwa Sava Azahra" class="profile-img" id="profileImage">
-                            <div class="profile-overlay-gradient"></div>
-                            
-                            <!-- Badges floating on profile -->
-                            <div class="floating-tag tag-top-right">
-                                <span class="tag-icon">🎓</span>
-                                <div class="tag-text">
-                                    <strong>UPI Bandung</strong>
-                                    <span>Pendidikan Ilmu Komputer</span>
-                                </div>
+                    <div class="lanyard-container" id="lanyardContainer">
+                        <!-- Top Mount Anchor -->
+                        <div class="lanyard-mount">
+                            <div class="mount-screw"></div>
+                            <div class="mount-bracket"></div>
+                            <div class="mount-screw"></div>
+                        </div>
+
+                        <!-- Dynamic SVG Straps (Tali Lanyard) -->
+                        <svg class="lanyard-svg" id="lanyardSvg">
+                            <defs>
+                                <linearGradient id="strapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#8b5cf6" />
+                                    <stop offset="45%" stop-color="#ec4899" />
+                                    <stop offset="100%" stop-color="#a855f7" />
+                                </linearGradient>
+                            </defs>
+                            <path id="strapLeft" class="strap-path" d="" />
+                            <path id="strapStitchLeft" class="strap-stitch" d="" />
+                            <path id="strapRight" class="strap-path" d="" />
+                            <path id="strapStitchRight" class="strap-stitch" d="" />
+                        </svg>
+
+                        <!-- Draggable & Floating Card Wrapper -->
+                        <div class="lanyard-card-wrapper" id="lanyardCardWrapper">
+                            <!-- Metal Clasp & Ring -->
+                            <div class="lanyard-clip">
+                                <div class="clip-ring"></div>
+                                <div class="clip-body"></div>
+                                <div class="clip-hook"></div>
                             </div>
 
-                            <div class="floating-tag tag-bottom-left">
-                                <span class="tag-icon">🎧</span>
-                                <div class="tag-text">
-                                    <strong>Music & Gaming</strong>
-                                    <span>Daily mood booster</span>
+                            <!-- ID Card Body -->
+                            <div class="lanyard-card" id="lanyardCard">
+                                <div class="card-pouch">
+                                    <div class="pouch-slot"></div>
+                                    
+                                    <div class="card-inner">
+                                        <!-- Realistic Gloss & Holographic Reflection -->
+                                        <div class="card-shine" id="cardShine"></div>
+                                        <div class="card-hologram" id="cardHologram"></div>
+
+                                        <!-- Header Bar -->
+                                        <div class="card-header-bar">
+                                            <div class="card-emblem">🎓</div>
+                                            <div class="card-inst">
+                                                <span class="inst-name">UNIVERSITAS PENDIDIKAN INDONESIA</span>
+                                                <span class="inst-sub">FPMIPA • PENDIDIKAN ILMU KOMPUTER</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Card Badge Row -->
+                                        <div class="card-badge-row">
+                                            <span class="card-badge-type">STUDENT CARD</span>
+                                            <span class="card-status-dot"><span class="dot-online"></span> ACTIVE</span>
+                                        </div>
+
+                                        <!-- Content: Photo & Details -->
+                                        <div class="card-content-grid">
+                                            <div class="card-photo-box">
+                                                <img src="images/foto5.jpeg" alt="Foto Nazhwa Sava Azahra" class="card-photo" draggable="false">
+                                            </div>
+                                            <div class="card-details">
+                                                <h3 class="card-person-name">NAZHWA SAVA AZAHRA</h3>
+                                                <p class="card-dept">Pendidikan Ilmu Komputer</p>
+                                                <div class="card-meta">
+                                                    <div class="meta-item">
+                                                        <span class="meta-label">NIM</span>
+                                                        <span class="meta-val">2505016</span>
+                                                    </div>
+                                                    <div class="meta-item">
+                                                        <span class="meta-label">ANGKATAN</span>
+                                                        <span class="meta-val">2025</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Footer: Barcode & Hologram Security Seal -->
+                                        <div class="card-footer-bar">
+                                            <div class="card-barcode">
+                                                <div class="barcode-lines"></div>
+                                                <span class="barcode-num">*2505016-ILKOM-UPI*</span>
+                                            </div>
+                                            <div class="card-holo-seal" title="Security Hologram Seal">
+                                                <span class="holo-star">✦</span>
+                                                <span class="holo-text">UPI</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Tech / Passion floating pills -->
-                        <div class="floating-bubble bubble-1">💻 Tech & Code</div>
-                        <div class="floating-bubble bubble-2">✨ Dream Big</div>
                     </div>
                 </div>
             </div>
-
-            <a href="#about" class="scroll-down-btn" aria-label="Scroll ke About">
-                <span class="scroll-mouse">
-                    <span class="scroll-wheel"></span>
-                </span>
-                <span class="scroll-text">Scroll Down</span>
-            </a>
         </section>
 
-        <!-- ABOUT / BIODATA SECTION -->
-        <section class="section about-section" id="about">
+        <!-- PORTALS SECTION (CLEAN CLICKABLE CARDS) -->
+        <section class="section home-portals-section">
             <div class="section-container">
-                <div class="section-badge-wrapper">
-                    <span class="section-badge">✨ PROFIL & BIODATA</span>
-                </div>
-                <h2 class="section-title">My Biodata <span class="gradient-text">Personal</span></h2>
-                <p class="section-subtitle">
-                    Mengenal lebih dekat latar belakang akademis, minat keahlian, dan impian masa depan.
-                </p>
-
-                <!-- Bento Grid Layout -->
-                <div class="bento-grid">
-                    <!-- Main Profile Bento -->
-                    <div class="bento-card bento-hero-info">
-                        <div class="bento-header">
-                            <div class="bento-icon-box">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                            </div>
-                            <span class="bento-badge">Identitas Utama</span>
-                        </div>
-                        <h3 class="bento-name">Nazhwa Sava Azahra</h3>
-                        <p class="bento-subname">Mahasiswi Pendidikan Ilmu Komputer</p>
-
-                        <div class="info-chips-list">
-                            <div class="info-chip">
-                                <span class="chip-label">NIM</span>
-                                <div class="chip-value-group">
-                                    <span class="chip-value" id="nimText">2505016</span>
-                                    <button class="copy-btn" onclick="copyNIM()" title="Salin NIM">
-                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="info-chip">
-                                <span class="chip-label">Program Studi</span>
-                                <span class="chip-value">Pendidikan Ilmu Komputer</span>
-                            </div>
-                            <div class="info-chip">
-                                <span class="chip-label">Fakultas</span>
-                                <span class="chip-value">FPMIPA</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Campus Bento -->
-                    <div class="bento-card bento-campus">
-                        <div class="bento-header">
-                            <div class="bento-icon-box gold">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 10 3 12 0v-5"></path></svg>
-                            </div>
-                            <span class="bento-badge gold">Perguruan Tinggi</span>
-                        </div>
-                        <h4 class="bento-card-title">Universitas Pendidikan Indonesia</h4>
-                        <p class="bento-card-desc">Kampus Bumi Siliwangi, Jl. Dr. Setiabudi No. 229, Kota Bandung, Jawa Barat.</p>
-                        <div class="campus-tags">
-                            <span class="mini-pill">🏛️ PTN-BH</span>
-                            <span class="mini-pill">📍 Bandung</span>
-                            <span class="mini-pill">⭐ FPMIPA UPI</span>
-                        </div>
-                    </div>
-
-                    <!-- Cita-cita / Aspirasi Bento -->
-                    <div class="bento-card bento-goals">
-                        <div class="bento-header">
-                            <div class="bento-icon-box purple">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                            </div>
-                            <span class="bento-badge purple">Life Goal & Aspirasi</span>
-                        </div>
-                        <h4 class="bento-card-title goals-headline">"Menjadi Kaya Raya & Sukses" 💸✨</h4>
-                        <p class="bento-card-desc">
-                            Membangun kemandirian finansial melalui teknologi, karier digital yang gemilang, serta membahagiakan orang-orang tercinta.
+                <div class="portal-grid">
+                    <!-- Portal 1: About -->
+                    <a href="about.html" class="portal-card">
+                        <div class="portal-icon">👤</div>
+                        <h3 class="portal-title">Biodata & Profil</h3>
+                        <p class="portal-desc">
+                            Kenali latar belakang akademis di UPI Bandung, impian masa depan, hobi favorit, dan keahlian di bidang ilmu komputer.
                         </p>
-                        <div class="goal-progress-bar">
-                            <div class="progress-fill" style="width: 85%;"></div>
-                        </div>
-                        <span class="goal-subtext">Manifesting greatness with hard work & smart study</span>
-                    </div>
+                    </a>
 
-                    <!-- Hobi & Interests Bento -->
-                    <div class="bento-card bento-hobby">
-                        <div class="bento-header">
-                            <div class="bento-icon-box pink">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
-                            </div>
-                            <span class="bento-badge pink">Hobi & Kegemaran</span>
-                        </div>
-                        <h4 class="bento-card-title">Musik & Gaming 🎮🎧</h4>
-                        <p class="bento-card-desc">
-                            Waktu luang diisi dengan mendengarkan playlist favorit dan bermain game seru untuk refreshing pikiran.
+                    <!-- Portal 2: Moments -->
+                    <a href="moments.html" class="portal-card">
+                        <div class="portal-icon">📸</div>
+                        <h3 class="portal-title">Moments & Galeri</h3>
+                        <p class="portal-desc">
+                            Dokumentasi visual penuh warna bersama teman, keluarga, serta beragam kegiatan kampus yang penuh kenangan manis.
                         </p>
-                        <div class="hobby-chips">
-                            <span class="hobby-tag">🎵 Listening Music</span>
-                            <span class="hobby-tag">🎮 Playing Games</span>
-                            <span class="hobby-tag">💻 Coding & Tech</span>
-                            <span class="hobby-tag">☕ Coffee & Chill</span>
-                        </div>
-                    </div>
+                    </a>
 
-                    <!-- Skills & Tech Stack Bento -->
-                    <div class="bento-card bento-skills">
-                        <div class="bento-header">
-                            <div class="bento-icon-box cyan">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                            </div>
-                            <span class="bento-badge cyan">Eksplorasi Keilmuan</span>
-                        </div>
-                        <h4 class="bento-card-title">Computer Science Toolkit</h4>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <span class="skill-icon">🐍</span>
-                                <span class="skill-name">Python</span>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-icon">⚡</span>
-                                <span class="skill-name">C++</span>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-icon">🌐</span>
-                                <span class="skill-name">HTML/CSS</span>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-icon">💛</span>
-                                <span class="skill-name">JavaScript</span>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-icon">⚛️</span>
-                                <span class="skill-name">React</span>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-icon">🎨</span>
-                                <span class="skill-name">UI Design</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DOCUMENTATION / GALLERY SECTION -->
-        <section class="section moments-section" id="documentation">
-            <div class="section-container">
-                <div class="section-badge-wrapper">
-                    <span class="section-badge">📸 DOKUMENTASI</span>
-                </div>
-                <h2 class="section-title">Little Moments <span class="gradient-text">♡</span></h2>
-                <p class="section-subtitle">
-                    Beberapa momen dan dokumentasi berharga bersama teman, keluarga, dan aktivitas keseharian.
-                </p>
-
-                <!-- Moments Gallery Grid -->
-                <div class="moments-grid">
-                    <!-- Photo 1 -->
-                    <div class="moment-card" onclick="openLightbox('images/foto1.jpeg', 'Dokumentasi Momen 1', 'Momen berharga bersama teman dan rekan seperjuangan.')">
-                        <div class="moment-img-wrapper">
-                            <img src="images/foto1.jpeg" alt="Dokumentasi 1 - Nazhwa Sava Azahra" loading="lazy">
-                            <div class="moment-overlay">
-                                <span class="zoom-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="moment-info">
-                            <span class="moment-tag">Memories</span>
-                            <h4 class="moment-caption">Momen Bersama ♡</h4>
-                            <p class="moment-sub">Dokumentasi kebersamaan yang penuh tawa dan cerita indah.</p>
-                        </div>
-                    </div>
-
-                    <!-- Photo 2 -->
-                    <div class="moment-card" onclick="openLightbox('images/foto2.jpeg', 'Dokumentasi Momen 2', 'Hangout dan momen santai pengisi energi positif.')">
-                        <div class="moment-img-wrapper">
-                            <img src="images/foto2.jpeg" alt="Dokumentasi 2 - Nazhwa Sava Azahra" loading="lazy">
-                            <div class="moment-overlay">
-                                <span class="zoom-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="moment-info">
-                            <span class="moment-tag">Daily Life</span>
-                            <h4 class="moment-caption">Good Vibes Only 🌸</h4>
-                            <p class="moment-sub">Menikmati hari-hari kuliah dan waktu berharga.</p>
-                        </div>
-                    </div>
-
-                    <!-- Photo 3 -->
-                    <div class="moment-card" onclick="openLightbox('images/foto3.jpeg', 'Dokumentasi Momen 3', 'Suasana kebersamaan yang tak terlupakan.')">
-                        <div class="moment-img-wrapper">
-                            <img src="images/foto3.jpeg" alt="Dokumentasi 3 - Nazhwa Sava Azahra" loading="lazy">
-                            <div class="moment-overlay">
-                                <span class="zoom-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="moment-info">
-                            <span class="moment-tag">Friendship</span>
-                            <h4 class="moment-caption">Cherished Times ✨</h4>
-                            <p class="moment-sub">Saling mendukung dalam setiap langkah perjuangan.</p>
-                        </div>
-                    </div>
-
-                    <!-- Photo 4 -->
-                    <div class="moment-card" onclick="openLightbox('images/foto4.jpeg', 'Dokumentasi Momen 4', 'Eksplorasi kegiatan kampus & momen tak tergantikan.')">
-                        <div class="moment-img-wrapper">
-                            <img src="images/foto4.jpeg" alt="Dokumentasi 4 - Nazhwa Sava Azahra" loading="lazy">
-                            <div class="moment-overlay">
-                                <span class="zoom-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="moment-info">
-                            <span class="moment-tag">Campus & Fun</span>
-                            <h4 class="moment-caption">Special Moments 💫</h4>
-                            <p class="moment-sub">Setiap foto menyimpan kenangan berharga yang abadi.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section class="section contact-section" id="contact">
-            <div class="section-container">
-                <div class="section-badge-wrapper">
-                    <span class="section-badge">💬 LET'S CONNECT</span>
-                </div>
-                <h2 class="section-title">Connect With <span class="gradient-text">Me ♡</span></h2>
-                <p class="section-subtitle">
-                    Feel free to connect and say hello! Silakan hubungi saya melalui media sosial atau email di bawah.
-                </p>
-
-                <div class="contact-layout">
-                    <!-- Left: Social Channels Grid -->
-                    <div class="social-channels-grid">
-                        <!-- Instagram -->
-                        <a href="https://instagram.com/sunghoonparj" target="_blank" rel="noopener noreferrer" class="social-box instagram">
-                            <div class="social-icon-wrapper">
-                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            </div>
-                            <div class="social-details">
-                                <span class="social-platform-name">Instagram</span>
-                                <span class="social-handle">@sunghoonparj</span>
-                            </div>
-                            <span class="external-link-arrow">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                            </span>
-                        </a>
-
-                        <!-- LinkedIn -->
-                        <a href="https://linkedin.com/in/nazhwa-sava-azahra" target="_blank" rel="noopener noreferrer" class="social-box linkedin">
-                            <div class="social-icon-wrapper">
-                                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            </div>
-                            <div class="social-details">
-                                <span class="social-platform-name">LinkedIn</span>
-                                <span class="social-handle">Nazhwa Sava Azahra</span>
-                            </div>
-                            <span class="external-link-arrow">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                            </span>
-                        </a>
-
-                        <!-- GitHub -->
-                        <a href="https://github.com/Nazhwazahraa" target="_blank" rel="noopener noreferrer" class="social-box github">
-                            <div class="social-icon-wrapper">
-                                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            </div>
-                            <div class="social-details">
-                                <span class="social-platform-name">GitHub</span>
-                                <span class="social-handle">@Nazhwazahraa</span>
-                            </div>
-                            <span class="external-link-arrow">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                            </span>
-                        </a>
-
-                        <!-- Email -->
-                        <a href="mailto:nazhwaazahra@student.upi.edu" class="social-box email">
-                            <div class="social-icon-wrapper">
-                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            </div>
-                            <div class="social-details">
-                                <span class="social-platform-name">Student Email</span>
-                                <span class="social-handle">nazhwaazahra@student.upi.edu</span>
-                            </div>
-                            <span class="external-link-arrow">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                            </span>
-                        </a>
-                    </div>
-
-                    <!-- Right: Quick Interactive Message Box -->
-                    <div class="quick-contact-card">
-                        <div class="quick-contact-header">
-                            <span class="envelope-icon">✉️</span>
-                            <div>
-                                <h4>Kirim Pesan Cepat</h4>
-                                <p>Tinggalkan pesan sapaan hangat atau ajakan kolaborasi</p>
-                            </div>
-                        </div>
-
-                        <form id="contactForm" onsubmit="handleContactSubmit(event)">
-                            <div class="form-group">
-                                <label for="senderName">Nama Lengkap</label>
-                                <input type="text" id="senderName" placeholder="Nama kamu..." required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="senderEmail">Email Kamu</label>
-                                <input type="email" id="senderEmail" placeholder="nama@email.com" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="senderMessage">Pesan</label>
-                                <textarea id="senderMessage" rows="4" placeholder="Tuliskan pesanmu di sini..." required></textarea>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-submit">
-                                <span>Kirim Pesan</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                            </button>
-                        </form>
-                    </div>
+                    <!-- Portal 3: Contact -->
+                    <a href="contact.html" class="portal-card">
+                        <div class="portal-icon">💬</div>
+                        <h3 class="portal-title">Kontak & Koneksi</h3>
+                        <p class="portal-desc">
+                            Terhubung melalui Instagram, LinkedIn, GitHub, email mahasiswa resmi UPI, atau kirimkan pesan langsung lewat formulir interaktif.
+                        </p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -498,10 +258,10 @@
                     <p class="footer-desc">Pendidikan Ilmu Komputer • Universitas Pendidikan Indonesia</p>
                 </div>
                 <div class="footer-nav">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#documentation">Moments</a>
-                    <a href="#contact">Contact</a>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="moments.html">Moments</a>
+                    <a href="contact.html">Contact</a>
                 </div>
             </div>
 
@@ -512,22 +272,10 @@
         </div>
     </footer>
 
-    <!-- LIGHTBOX MODAL -->
-    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
-        <button class="lightbox-close" onclick="closeLightboxDirectly()" aria-label="Close modal">&times;</button>
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <img src="" alt="" id="lightboxImg">
-            <div class="lightbox-caption-box">
-                <h4 id="lightboxTitle">Judul Momen</h4>
-                <p id="lightboxDesc">Deskripsi momen</p>
-            </div>
-        </div>
-    </div>
-
     <!-- TOAST NOTIFICATION -->
     <div class="toast" id="toastNotification">
         <span class="toast-icon">✓</span>
-        <span class="toast-message" id="toastMessage">NIM berhasil disalin!</span>
+        <span class="toast-message" id="toastMessage">Notifikasi berhasil!</span>
     </div>
 
     <!-- Script -->

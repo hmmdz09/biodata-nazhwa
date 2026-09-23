@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biodata & Profil Lengkap Nazhwa Sava Azahra - Mahasiswa Pendidikan Ilmu Komputer Universitas Pendidikan Indonesia (UPI)">
+    <meta name="keywords" content="Nazhwa Sava Azahra, Biodata Nazhwa, UPI, Pendidikan Ilmu Komputer, About Nazhwa">
+    <meta name="author" content="Nazhwa Sava Azahra">
+    <title>Nazhwa Sava Azahra | About • Profil & Biodata</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body class="page-fade-in">
+
+    <!-- Ambient Background Effects -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+    <div class="ambient-grid"></div>
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <!-- Custom Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <span class="logo-sparkle">✦</span>
+                <span class="logo-text">Nazhwa<span class="accent-dot">.</span></span>
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="moments.html" class="nav-link">Moments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn-nav">
+                    <span>Let's Talk</span>
+                </a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SUBPAGE HERO & BREADCRUMB -->
+        <section class="subpage-hero">
+            <div class="section-container">
+                <nav class="breadcrumb-nav">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>About</span>
+                </nav>
+                <div class="section-badge-wrapper">
+                    <span class="section-badge">✨ PROFIL & BIODATA</span>
+                </div>
+                <h1 class="subpage-title">Tentang <span class="gradient-text">Nazhwa Sava</span></h1>
+                <p class="subpage-desc">
+                    Mengenal lebih dekat identitas akademis di Universitas Pendidikan Indonesia, mimpi besar, ketertarikan teknologi, dan hobi yang menyenangkan.
+                </p>
+            </div>
+        </section>
+
+        <!-- BENTO GRID SECTION -->
+        <section class="section" style="padding-top: 1rem;">
+            <div class="section-container">
+                <div class="bento-grid">
+                    <!-- Main Profile Bento -->
+                    <div class="bento-card bento-hero-info">
+                        <div class="bento-header">
+                            <div class="bento-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </div>
+                            <span class="bento-badge">Identitas Utama</span>
+                        </div>
+                        <h3 class="bento-name">Nazhwa Sava Azahra</h3>
+                        <p class="bento-subname">Mahasiswi Pendidikan Ilmu Komputer</p>
+
+                        <div class="info-chips-list">
+                            <div class="info-chip">
+                                <span class="chip-label">NIM</span>
+                                <div class="chip-value-group">
+                                    <span class="chip-value" id="nimText">2505016</span>
+                                    <button class="copy-btn" onclick="copyNIM()" title="Salin NIM">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="info-chip">
+                                <span class="chip-label">Program Studi</span>
+                                <span class="chip-value">Pendidikan Ilmu Komputer</span>
+                            </div>
+                            <div class="info-chip">
+                                <span class="chip-label">Fakultas</span>
+                                <span class="chip-value">FPMIPA</span>
+                            </div>
+                            <div class="info-chip">
+                                <span class="chip-label">Angkatan</span>
+                                <span class="chip-value">2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campus Bento -->
+                    <div class="bento-card bento-campus">
+                        <div class="bento-header">
+                            <div class="bento-icon-box gold">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 10 3 12 0v-5"></path></svg>
+                            </div>
+                            <span class="bento-badge gold">Perguruan Tinggi</span>
+                        </div>
+                        <h4 class="bento-card-title">Universitas Pendidikan Indonesia</h4>
+                        <p class="bento-card-desc">Kampus Bumi Siliwangi, Jl. Dr. Setiabudi No. 229, Kota Bandung, Jawa Barat.</p>
+                        <div class="campus-tags">
+                            <span class="mini-pill">🏛️ PTN-BH</span>
+                            <span class="mini-pill">📍 Bandung</span>
+                            <span class="mini-pill">⭐ FPMIPA UPI</span>
+                        </div>
+                    </div>
+
+                    <!-- Goals & Aspirasi Bento -->
+                    <div class="bento-card bento-goals">
+                        <div class="bento-header">
+                            <div class="bento-icon-box purple">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            </div>
+                            <span class="bento-badge purple">Life Goal & Aspirasi</span>
+                        </div>
+                        <h4 class="bento-card-title goals-headline">"Menjadi Kaya Raya & Sukses" 💸✨</h4>
+                        <p class="bento-card-desc">
+                            Membangun kemandirian finansial melalui teknologi, karier digital yang gemilang, serta membahagiakan orang-orang tercinta.
+                        </p>
+                        <div class="goal-progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                        <span class="goal-subtext">Manifesting greatness with hard work & smart study</span>
+                    </div>
+
+                    <!-- Hobi & Interests Bento -->
+                    <div class="bento-card bento-hobby">
+                        <div class="bento-header">
+                            <div class="bento-icon-box pink">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                            </div>
+                            <span class="bento-badge pink">Hobi & Kegemaran</span>
+                        </div>
+                        <h4 class="bento-card-title">Musik & Gaming 🎮🎧</h4>
+                        <p class="bento-card-desc">
+                            Waktu santai diisi dengan mendengarkan playlist lagu favorit dan bermain game seru untuk refreshing pikiran.
+                        </p>
+                        <div class="hobby-chips">
+                            <span class="hobby-tag">🎵 Listening Music</span>
+                            <span class="hobby-tag">🎮 Playing Games</span>
+                            <span class="hobby-tag">💻 Coding & Tech</span>
+                            <span class="hobby-tag">☕ Coffee & Chill</span>
+                        </div>
+                    </div>
+
+                    <!-- Skills & Tech Stack Bento -->
+                    <div class="bento-card bento-skills">
+                        <div class="bento-header">
+                            <div class="bento-icon-box cyan">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <span class="bento-badge cyan">Eksplorasi Keilmuan</span>
+                        </div>
+                        <h4 class="bento-card-title">Computer Science Toolkit</h4>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <span class="skill-icon">🐍</span>
+                                <span class="skill-name">Python</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">⚡</span>
+                                <span class="skill-name">C++</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">🌐</span>
+                                <span class="skill-name">HTML/CSS</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">💛</span>
+                                <span class="skill-name">JavaScript</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">⚛️</span>
+                                <span class="skill-name">React</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">🎨</span>
+                                <span class="skill-name">UI Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JOURNEY TIMELINE -->
+                <div class="journey-timeline-section">
+                    <div class="section-badge-wrapper">
+                        <span class="section-badge">🚀 PERJALANAN & MILESTONES</span>
+                    </div>
+                    <h3 class="section-title">Milestones <span class="gradient-text">Akademis</span></h3>
+                    <p class="section-subtitle">
+                        Langkah awal dan target masa depan dalam menempuh dunia perkuliahan dan industri teknologi.
+                    </p>
+
+                    <div class="timeline-wrapper">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">Tahun 2025</span>
+                                <h4 class="timeline-title">Lolos Masuk Pendidikan Ilmu Komputer UPI</h4>
+                                <p class="timeline-text">
+                                    Memulai langkah baru sebagai mahasiswi FPMIPA UPI Bandung angkatan 2025 dengan antusiasme tinggi untuk mendalami keilmuan komputer.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2025 - 2026</span>
+                                <h4 class="timeline-title">Eksplorasi Pemrograman & Algoritma</h4>
+                                <p class="timeline-text">
+                                    Mempelajari konsep dasar algoritma, pemrograman terstruktur (C++/Python), pengembangan web modern, serta aktif dalam kegiatan kemahasiswaan.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">Masa Depan ✨</span>
+                                <h4 class="timeline-title">Menjadi Profesional Sukses & Mandiri</h4>
+                                <p class="timeline-text">
+                                    Mewujudkan impian karier di industri teknologi, menguasai keahlian digital masa depan, dan mencapai kebebasan finansial yang gemilang.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEXT PAGE BANNER (NO ARROWS) -->
+                <div class="page-next-banner">
+                    <div class="banner-content">
+                        <h3>Ingin Melihat Galeri Momen Berharga? 📸</h3>
+                        <p>Telusuri foto-foto kenangan indah bersama teman dan aktivitas perkuliahan di halaman Moments.</p>
+                    </div>
+                    <a href="moments.html" class="btn btn-primary">
+                        <span>Lihat Moments</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">✦ Nazhwa Sava Azahra</span>
+                    <p class="footer-desc">Pendidikan Ilmu Komputer • Universitas Pendidikan Indonesia</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="moments.html">Moments</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Nazhwa Sava Azahra. All rights reserved.</p>
+                <p class="footer-love">Crafted with 💜 & modern aesthetic</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toastNotification">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message" id="toastMessage">NIM berhasil disalin!</span>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>

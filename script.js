@@ -1,19 +1,251 @@
 /**
  * NAZHWA SAVA AZAHRA - PORTFOLIO INTERACTIVITY SCRIPT
- * Features: Background Particle Simulation, Cursor Glow, Scrollspy,
- * Lightbox Modal, Copy to Clipboard, and Toast Notifications
+ * Features:
+ * 1. Ultra-Modern Seamless Page Transition (Glowing Progress Bar & Soft Blur-Scale Dissolve)
+ * 2. Physically Connected Spring & Pendulum Lanyard (Seamless strap-to-clip attachment)
+ * 3. Particle Canvas & Ambient Cursor Glow
+ * 4. 3D Tilt Effect on Cards
+ * 5. Lightbox Modal
+ * 6. Copy NIM, Toast Notifications, and Contact Form Simulation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initPageTransitions();
     initHeaderScroll();
     initMobileMenu();
-    initScrollSpy();
     initCursorGlow();
     initParticleCanvas();
     initCardTilt();
+    initLanyard();
+    initMomentsFilter();
 });
 
-/* --- 1. HEADER SCROLL EFFECT --- */
+/* ==========================================================================
+   1. CROSSFADE PAGE TRANSITION ENGINE
+   ========================================================================== */
+function initPageTransitions() {
+    document.body.classList.remove('page-crossfade-out');
+
+    const links = document.querySelectorAll('a[href]');
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http') || link.target === '_blank') {
+            return;
+        }
+
+        link.addEventListener('click', (e) => {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const targetPath = href.split('/').pop() || 'index.html';
+            if (currentPath === targetPath) {
+                return;
+            }
+
+            e.preventDefault();
+            document.body.classList.add('page-crossfade-out');
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 240);
+        });
+    });
+
+    // Handle browser back/forward buttons (bfcache)
+    window.addEventListener('pageshow', () => {
+        document.body.classList.remove('page-crossfade-out');
+    });
+}
+
+/* ==========================================================================
+   2. PHYSICALLY CONNECTED SPRING & PENDULUM LANYARD
+   ========================================================================== */
+function initLanyard() {
+    const container = document.getElementById('lanyardContainer');
+    const cardWrapper = document.getElementById('lanyardCardWrapper');
+    const strapLeft = document.getElementById('strapLeft');
+    const strapRight = document.getElementById('strapRight');
+    const strapStitchLeft = document.getElementById('strapStitchLeft');
+    const strapStitchRight = document.getElementById('strapStitchRight');
+    const cardShine = document.getElementById('cardShine');
+    const cardHologram = document.getElementById('cardHologram');
+    const hint = document.getElementById('lanyardHint');
+
+    if (!container || !cardWrapper || !strapLeft || !strapRight) return;
+
+    let width = container.clientWidth || 380;
+    let height = container.clientHeight || 600;
+
+    // Top anchor points on mount bracket
+    let anchorY = 6;
+    let anchorLeftX = width * 0.5 - 22;
+    let anchorRightX = width * 0.5 + 22;
+
+    // Physics variables (Equilibrium rest position)
+    let restX = width * 0.5;
+    let restY = 160;
+
+    let currentX = restX;
+    let currentY = restY;
+    let vx = 0;
+    let vy = 0;
+
+    let currentAngle = 0;
+    let vAngle = 0;
+
+    let isDragging = false;
+    let pointerStartX = 0;
+    let pointerStartY = 0;
+    let cardStartOffsetX = 0;
+    let cardStartOffsetY = 0;
+
+    let time = 0;
+
+    function updateDimensions() {
+        width = container.clientWidth || 380;
+        height = container.clientHeight || 600;
+        anchorLeftX = width * 0.5 - 22;
+        anchorRightX = width * 0.5 + 22;
+        restX = width * 0.5;
+        restY = 160;
+        if (!isDragging && Math.abs(currentX - restX) > width * 0.4) {
+            currentX = restX;
+            currentY = restY;
+        }
+    }
+
+    window.addEventListener('resize', updateDimensions);
+
+    // Pointer events for mouse & touch
+    cardWrapper.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        cardWrapper.classList.add('is-dragging');
+        cardWrapper.setPointerCapture(e.pointerId);
+
+        pointerStartX = e.clientX;
+        pointerStartY = e.clientY;
+        cardStartOffsetX = currentX;
+        cardStartOffsetY = currentY;
+
+        vx = 0;
+        vy = 0;
+
+        if (hint) {
+            hint.style.opacity = '0';
+        }
+    });
+
+    cardWrapper.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+
+        const deltaX = e.clientX - pointerStartX;
+        const deltaY = e.clientY - pointerStartY;
+
+        // Realistic stretch limits
+        const targetX = cardStartOffsetX + deltaX;
+        const targetY = Math.max(90, Math.min(height - 240, cardStartOffsetY + deltaY));
+
+        vx = (targetX - currentX) * 0.45;
+        vy = (targetY - currentY) * 0.45;
+
+        currentX = targetX;
+        currentY = targetY;
+
+        const targetAngle = Math.max(-36, Math.min(36, (currentX - restX) * 0.22));
+        currentAngle += (targetAngle - currentAngle) * 0.25;
+    });
+
+    const endDrag = (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        cardWrapper.classList.remove('is-dragging');
+        try {
+            cardWrapper.releasePointerCapture(e.pointerId);
+        } catch (_) {}
+    };
+
+    cardWrapper.addEventListener('pointerup', endDrag);
+    cardWrapper.addEventListener('pointercancel', endDrag);
+
+    // Physics Animation Loop
+    function renderPhysics() {
+        time += 1;
+
+        if (!isDragging) {
+            // Spring restoring force
+            const kSpring = 0.045;
+            const damping = 0.88;
+            const fx = -kSpring * (currentX - restX);
+            const fy = -kSpring * (currentY - restY);
+
+            vx = (vx + fx) * damping;
+            vy = (vy + fy) * damping;
+
+            currentX += vx;
+            currentY += vy;
+
+            // Natural pendulum rotation angle & idle gentle air sway
+            const idleSway = Math.sin(time * 0.035) * 1.8;
+            const targetAngle = ((currentX - restX) * 0.2) + idleSway;
+            const kAngle = 0.065;
+            const dampingAngle = 0.86;
+
+            vAngle = (vAngle + -kAngle * (currentAngle - targetAngle)) * dampingAngle;
+            currentAngle += vAngle;
+        }
+
+        // Connection point into the clip ring (Clip ring center is at currentX, currentY + 6)
+        const clipLeftX = currentX - 5;
+        const clipLeftY = currentY + 6;
+        const clipRightX = currentX + 5;
+        const clipRightY = currentY + 6;
+
+        // Draw Left Strap Bezier Curve directly into clip ring
+        const leftCtrlX1 = anchorLeftX + (clipLeftX - anchorLeftX) * 0.25;
+        const leftCtrlY1 = anchorY + (clipLeftY - anchorY) * 0.55 + 12;
+        const leftCtrlX2 = anchorLeftX + (clipLeftX - anchorLeftX) * 0.78;
+        const leftCtrlY2 = anchorY + (clipLeftY - anchorY) * 0.85;
+        const pathLeft = `M ${anchorLeftX} ${anchorY} C ${leftCtrlX1} ${leftCtrlY1}, ${leftCtrlX2} ${leftCtrlY2}, ${clipLeftX} ${clipLeftY}`;
+        strapLeft.setAttribute('d', pathLeft);
+        if (strapStitchLeft) strapStitchLeft.setAttribute('d', pathLeft);
+
+        // Draw Right Strap Bezier Curve directly into clip ring
+        const rightCtrlX1 = anchorRightX + (clipRightX - anchorRightX) * 0.25;
+        const rightCtrlY1 = anchorY + (clipRightY - anchorY) * 0.55 + 12;
+        const rightCtrlX2 = anchorRightX + (clipRightX - anchorRightX) * 0.78;
+        const rightCtrlY2 = anchorY + (clipRightY - anchorY) * 0.85;
+        const pathRight = `M ${anchorRightX} ${anchorY} C ${rightCtrlX1} ${rightCtrlY1}, ${rightCtrlX2} ${rightCtrlY2}, ${clipRightX} ${clipRightY}`;
+        strapRight.setAttribute('d', pathRight);
+        if (strapStitchRight) strapStitchRight.setAttribute('d', pathRight);
+
+        // Position Card Wrapper: exactly aligned with clip ring at (currentX, currentY)
+        const wrapperX = currentX - 145; // 290px card width / 2
+        const wrapperY = currentY;
+
+        const rotateY = Math.max(-25, Math.min(25, currentAngle * 0.55));
+        const rotateX = Math.max(-14, Math.min(14, (currentY - restY) * -0.07));
+        cardWrapper.style.transform = `translate3d(${wrapperX}px, ${wrapperY}px, 0) rotateZ(${currentAngle}deg) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+
+        // Dynamic light reflection shift
+        if (cardShine) {
+            const shineAngle = 135 + currentAngle * 1.5;
+            const shineOpacity = 0.22 + Math.abs(currentAngle) * 0.01;
+            cardShine.style.background = `linear-gradient(${shineAngle}deg, rgba(255, 255, 255, ${shineOpacity}) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 60%)`;
+        }
+
+        if (cardHologram) {
+            const holoX = 50 + (currentX - restX) * 0.3;
+            cardHologram.style.transform = `translate(${holoX}%, ${currentAngle * 1.2}px)`;
+        }
+
+        requestAnimationFrame(renderPhysics);
+    }
+
+    renderPhysics();
+}
+
+/* ==========================================================================
+   3. HEADER SCROLL EFFECT
+   ========================================================================== */
 function initHeaderScroll() {
     const header = document.getElementById('header');
     if (!header) return;
@@ -27,7 +259,9 @@ function initHeaderScroll() {
     }, { passive: true });
 }
 
-/* --- 2. MOBILE MENU --- */
+/* ==========================================================================
+   4. MOBILE NAVIGATION MENU
+   ========================================================================== */
 function initMobileMenu() {
     const toggle = document.getElementById('mobileToggle');
     const menu = document.getElementById('navMenu');
@@ -56,38 +290,13 @@ function initMobileMenu() {
     });
 }
 
-/* --- 3. SCROLLSPY --- */
-function initScrollSpy() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const scrollPosition = window.scrollY + 200;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    }, { passive: true });
-}
-
-/* --- 4. CURSOR GLOW TRACKING --- */
+/* ==========================================================================
+   5. CURSOR GLOW TRACKING
+   ========================================================================== */
 function initCursorGlow() {
     const glow = document.getElementById('cursorGlow');
     if (!glow) return;
 
-    // Check if mouse device
     if (window.matchMedia('(pointer: fine)').matches) {
         window.addEventListener('mousemove', (e) => {
             glow.style.left = `${e.clientX}px`;
@@ -98,7 +307,9 @@ function initCursorGlow() {
     }
 }
 
-/* --- 5. BACKGROUND PARTICLES CANVAS --- */
+/* ==========================================================================
+   6. BACKGROUND PARTICLES CANVAS
+   ========================================================================== */
 function initParticleCanvas() {
     const canvas = document.getElementById('particleCanvas');
     if (!canvas) return;
@@ -151,11 +362,13 @@ function initParticleCanvas() {
     animate();
 }
 
-/* --- 6. 3D TILT EFFECT ON CARDS --- */
+/* ==========================================================================
+   7. 3D TILT EFFECT ON CARDS
+   ========================================================================== */
 function initCardTilt() {
     if (!window.matchMedia('(pointer: fine)').matches) return;
 
-    const cards = document.querySelectorAll('.bento-card');
+    const cards = document.querySelectorAll('.bento-card, .portal-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -177,7 +390,37 @@ function initCardTilt() {
     });
 }
 
-/* --- 7. LIGHTBOX MODAL --- */
+/* ==========================================================================
+   8. MOMENTS CATEGORY FILTER
+   ========================================================================== */
+function initMomentsFilter() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const momentCards = document.querySelectorAll('.moment-card');
+
+    if (!filterBtns.length || !momentCards.length) return;
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter') || 'all';
+
+            momentCards.forEach(card => {
+                const category = card.getAttribute('data-category') || '';
+                if (filterValue === 'all' || category === filterValue) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+/* ==========================================================================
+   9. LIGHTBOX MODAL
+   ========================================================================== */
 window.openLightbox = function(imageSrc, title, desc) {
     const modal = document.getElementById('lightboxModal');
     const img = document.getElementById('lightboxImg');
@@ -188,8 +431,8 @@ window.openLightbox = function(imageSrc, title, desc) {
 
     img.src = imageSrc;
     img.alt = title;
-    titleEl.textContent = title;
-    descEl.textContent = desc;
+    if (titleEl) titleEl.textContent = title;
+    if (descEl) descEl.textContent = desc;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -215,7 +458,9 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-/* --- 8. COPY TO CLIPBOARD --- */
+/* ==========================================================================
+   10. COPY NIM TO CLIPBOARD
+   ========================================================================== */
 window.copyNIM = function() {
     const nim = document.getElementById('nimText')?.textContent || '2505016';
     navigator.clipboard.writeText(nim).then(() => {
@@ -225,7 +470,9 @@ window.copyNIM = function() {
     });
 };
 
-/* --- 9. TOAST NOTIFICATION --- */
+/* ==========================================================================
+   11. TOAST NOTIFICATION
+   ========================================================================== */
 function showToast(message) {
     const toast = document.getElementById('toastNotification');
     const toastMsg = document.getElementById('toastMessage');
@@ -240,14 +487,15 @@ function showToast(message) {
     }, 3200);
 }
 
-/* --- 10. CONTACT FORM SUBMIT SIMULATION --- */
+/* ==========================================================================
+   12. CONTACT FORM SUBMIT SIMULATION
+   ========================================================================== */
 window.handleContactSubmit = function(event) {
     event.preventDefault();
-    const name = document.getElementById('senderName').value;
-    const email = document.getElementById('senderEmail').value;
+    const nameEl = document.getElementById('senderName');
+    const name = nameEl ? nameEl.value : 'Teman';
 
     showToast(`Terima kasih, ${name}! Pesanmu telah terkirim ke Nazhwa. ✨`);
 
-    // Reset form
     event.target.reset();
 };

@@ -1184,15 +1184,6 @@ img {
     color: var(--text-primary);
 }
 
-.external-link-arrow {
-    color: var(--text-muted);
-    transition: all var(--transition-fast);
-}
-
-.social-box:hover .external-link-arrow {
-    color: var(--accent-pink);
-    transform: translate(3px, -3px);
-}
 
 /* Quick Contact Card */
 .quick-contact-card {
@@ -1451,6 +1442,839 @@ img {
     justify-content: center;
     font-weight: 700;
     font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   ULTRA-MODERN PAGE TRANSITIONS
+   ========================================================================== */
+/* ==========================================================================
+   CROSSFADE PAGE TRANSITIONS
+   ========================================================================== */
+body {
+    opacity: 1;
+    transition: opacity 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.page-crossfade-out {
+    opacity: 0 !important;
+}
+
+/* Page entrance reveal */
+.page-fade-in {
+    animation: crossfadeIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes crossfadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ==========================================================================
+   PAGE HERO / SUBPAGE HEADER & BREADCRUMB
+   ========================================================================== */
+.subpage-hero {
+    padding: 8rem 0 3rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.breadcrumb-nav a {
+    color: var(--accent-pink);
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.subpage-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.85rem;
+}
+
+.subpage-desc {
+    max-width: 640px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Quick Page Switcher / Bottom CTA Banner */
+.page-next-banner {
+    margin-top: 5rem;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(236, 72, 153, 0.08) 100%);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+    transition: all var(--transition-normal);
+}
+
+.page-next-banner:hover {
+    border-color: rgba(236, 72, 153, 0.5);
+    box-shadow: 0 20px 45px -10px rgba(168, 85, 247, 0.25);
+}
+
+.banner-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+}
+
+.banner-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   HOME PORTAL CARDS (EXPLORE TEASERS)
+   ========================================================================== */
+.home-portals-section {
+    padding: 4rem 0 6rem 0;
+    position: relative;
+}
+
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.portal-card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: var(--radius-lg);
+    padding: 2.2rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 290px;
+    backdrop-filter: blur(16px);
+    transition: all var(--transition-normal);
+}
+
+.portal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 10%, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    pointer-events: none;
+}
+
+.portal-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(168, 85, 247, 0.4);
+    background: var(--bg-card-hover);
+    box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.2);
+}
+
+.portal-card:hover::before {
+    opacity: 1;
+}
+
+.portal-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.15) 100%);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.portal-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+    color: var(--text-primary);
+}
+
+.portal-desc {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   INTERACTIVE LANYARD COMPONENT
+   ========================================================================== */
+.lanyard-container {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1200px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+}
+
+/* Top mount anchor */
+.lanyard-mount {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 25;
+}
+
+.mount-bracket {
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(180deg, #475569 0%, #1e293b 100%);
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.mount-screw {
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #94a3b8 30%, #334155 100%);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Dynamic SVG Straps */
+.lanyard-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    overflow: visible;
+}
+
+.strap-path {
+    fill: none;
+    stroke: url(#strapGrad);
+    stroke-width: 14;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+}
+
+.strap-stitch {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.35);
+    stroke-width: 1.5;
+    stroke-dasharray: 4, 3;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+/* Lanyard Card Wrapper that moves & responds to spring physics */
+.lanyard-card-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 290px;
+    transform-origin: 50% 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: grab;
+    z-index: 20;
+    will-change: transform;
+}
+
+.lanyard-card-wrapper.is-dragging {
+    cursor: grabbing;
+}
+
+/* Metal Clasp / Clip */
+.lanyard-clip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -6px;
+    z-index: 22;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.45));
+}
+
+.clip-ring {
+    width: 20px;
+    height: 12px;
+    border: 3px solid #e2e8f0;
+    border-radius: 6px;
+    background: transparent;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.clip-body {
+    width: 26px;
+    height: 18px;
+    background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 45%, #64748b 100%);
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.clip-body::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.clip-hook {
+    width: 12px;
+    height: 14px;
+    border: 3px solid #cbd5e1;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    background: transparent;
+}
+
+/* Interactive Drag Hint Bubble */
+.lanyard-hint {
+    position: absolute;
+    top: -48px;
+    background: rgba(14, 16, 25, 0.92);
+    border: 1px solid rgba(236, 72, 153, 0.4);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #f8fafc;
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.25);
+    white-space: nowrap;
+    pointer-events: none;
+    animation: hintFloat 2.2s ease-in-out infinite;
+    backdrop-filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+@keyframes hintFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.hint-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-pink);
+    box-shadow: 0 0 10px var(--accent-pink);
+    animation: pulse 1.5s infinite;
+}
+
+/* The Realistic Lanyard Card */
+.lanyard-card {
+    position: relative;
+    width: 290px;
+    border-radius: 18px;
+    background: rgba(22, 26, 44, 0.92);
+    border: 1.5px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.75),
+        0 0 30px rgba(168, 85, 247, 0.25);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lanyard-card-wrapper:hover .lanyard-card {
+    border-color: rgba(236, 72, 153, 0.5);
+    box-shadow: 
+        0 30px 60px -12px rgba(0, 0, 0, 0.85),
+        0 0 40px rgba(236, 72, 153, 0.35);
+}
+
+/* Pouch outer top hanger slot */
+.card-pouch {
+    position: relative;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+.pouch-slot {
+    width: 38px;
+    height: 7px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    margin: -2px auto 0.75rem auto;
+}
+
+/* Inner Badge Body */
+.card-inner {
+    position: relative;
+    border-radius: 12px;
+    background: linear-gradient(160deg, #181d33 0%, #0d1020 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.1rem;
+    overflow: hidden;
+}
+
+/* Gloss & Hologram reflections */
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 60%);
+    pointer-events: none;
+    z-index: 5;
+    mix-blend-mode: overlay;
+    transition: opacity 0.2s ease;
+}
+
+.card-hologram {
+    position: absolute;
+    bottom: -30%;
+    right: -30%;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, rgba(236, 72, 153, 0.2) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 4;
+    filter: blur(12px);
+}
+
+/* Card Header */
+.card-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.65rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-emblem {
+    font-size: 1.4rem;
+    filter: drop-shadow(0 0 6px #a855f7);
+}
+
+.card-inst {
+    display: flex;
+    flex-direction: column;
+}
+
+.inst-name {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #f1f5f9;
+}
+
+.inst-sub {
+    font-size: 0.52rem;
+    font-weight: 600;
+    color: var(--accent-pink);
+    letter-spacing: 0.02em;
+}
+
+/* Badge Row */
+.card-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.9rem;
+}
+
+.card-badge-type {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.5rem;
+    background: rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    border-radius: 4px;
+    color: #e9d5ff;
+}
+
+.card-status-dot {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.dot-online {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+}
+
+/* Card Photo & Details Grid */
+.card-content-grid {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.9rem;
+}
+
+.card-photo-box {
+    position: relative;
+    width: 78px;
+    height: 98px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid rgba(236, 72, 153, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-details {
+    flex-grow: 1;
+}
+
+.card-person-name {
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+}
+
+.card-dept {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 0.55rem;
+}
+
+.card-meta {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.meta-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 0.25rem 0.45rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.meta-val {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--accent-pink);
+    font-family: monospace;
+}
+
+/* Card Footer: Barcode & Security Seal */
+.card-footer-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    padding-top: 0.65rem;
+}
+
+.card-barcode {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.barcode-lines {
+    width: 130px;
+    height: 18px;
+    background: repeating-linear-gradient(
+        90deg,
+        #f8fafc,
+        #f8fafc 2px,
+        transparent 2px,
+        transparent 4px,
+        #f8fafc 4px,
+        #f8fafc 7px,
+        transparent 7px,
+        transparent 9px,
+        #f8fafc 9px,
+        #f8fafc 10px,
+        transparent 10px,
+        transparent 13px
+    );
+    opacity: 0.85;
+}
+
+.barcode-num {
+    font-size: 0.52rem;
+    font-family: monospace;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+}
+
+.card-holo-seal {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #ec4899, #a855f7, #06b6d4, #10b981, #f59e0b, #ec4899);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+    animation: holoSpin 6s linear infinite;
+}
+
+@keyframes holoSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.holo-star {
+    font-size: 0.75rem;
+    color: #fff;
+    line-height: 1;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.8));
+}
+
+.holo-text {
+    font-size: 0.38rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.05em;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.8));
+}
+
+/* Moments category filter pills */
+.moments-filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.55rem 1.3rem;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--bg-card-border);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.filter-btn.active {
+    color: #fff;
+    background: var(--gradient-primary);
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+}
+
+/* About Journey Timeline */
+.journey-timeline-section {
+    margin-top: 4.5rem;
+}
+
+.timeline-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 2.5rem auto 0 auto;
+    padding-left: 2rem;
+}
+
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 7px;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, #a855f7 0%, #ec4899 50%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #08090e;
+    border: 3px solid var(--accent-pink);
+    box-shadow: 0 0 10px var(--accent-pink);
+}
+
+.timeline-content {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: var(--radius-md);
+    padding: 1.4rem 1.6rem;
+    backdrop-filter: blur(12px);
+    transition: border-color var(--transition-fast);
+}
+
+.timeline-content:hover {
+    border-color: rgba(168, 85, 247, 0.35);
+}
+
+.timeline-year {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent-pink);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    background: rgba(236, 72, 153, 0.12);
+    border: 1px solid rgba(236, 72, 153, 0.25);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.timeline-text {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Media Query enhancements for portals and lanyard */
+@media (max-width: 1024px) {
+    .portal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lanyard-container {
+        height: 540px;
+    }
+}
+
+@media (max-width: 768px) {
+    .subpage-title {
+        font-size: 2.25rem;
+    }
+
+    .portal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lanyard-container {
+        height: 500px;
+        max-width: 320px;
+    }
+
+    .lanyard-card {
+        width: 260px;
+    }
+
+    .card-photo-box {
+        width: 68px;
+        height: 86px;
+    }
+
+    .barcode-lines {
+        width: 100px;
+    }
+
+    .page-next-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 /* --- RESPONSIVE DESIGN --- */

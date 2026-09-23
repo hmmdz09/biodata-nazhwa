@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dokumentasi & Galeri Momen Berharga Nazhwa Sava Azahra - Mahasiswa Pendidikan Ilmu Komputer UPI">
+    <meta name="keywords" content="Nazhwa Sava Azahra, Dokumentasi Nazhwa, Galeri Foto Nazhwa, UPI, Moments">
+    <meta name="author" content="Nazhwa Sava Azahra">
+    <title>Nazhwa Sava Azahra | Moments • Galeri Dokumentasi</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body class="page-fade-in">
+
+    <!-- Ambient Background Effects -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+    <div class="ambient-grid"></div>
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <!-- Custom Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <span class="logo-sparkle">✦</span>
+                <span class="logo-text">Nazhwa<span class="accent-dot">.</span></span>
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="moments.html" class="nav-link active">Moments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn-nav">
+                    <span>Let's Talk</span>
+                </a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SUBPAGE HERO & BREADCRUMB -->
+        <section class="subpage-hero">
+            <div class="section-container">
+                <nav class="breadcrumb-nav">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>Moments</span>
+                </nav>
+                <div class="section-badge-wrapper">
+                    <span class="section-badge">📸 DOKUMENTASI & GALERI</span>
+                </div>
+                <h1 class="subpage-title">Little Moments <span class="gradient-text">♡</span></h1>
+                <p class="subpage-desc">
+                    Potret kenangan indah bersama teman-teman, suasana hangat perkuliahan UPI, dan momen penuh senyuman yang selalu berkesan.
+                </p>
+            </div>
+        </section>
+
+        <!-- MOMENTS GALLERY SECTION (ORIGINAL PHOTOS ONLY) -->
+        <section class="section" style="padding-top: 0;">
+            <div class="section-container">
+                <!-- Moments Grid: 4 Original Photos Only -->
+                <div class="moments-grid">
+                    <!-- Photo 1 -->
+                    <div class="moment-card" onclick="openLightbox('images/foto1.jpeg', 'Momen Bersama ♡', 'Momen berharga bersama sahabat dan rekan seperjuangan yang selalu saling menguatkan.')">
+                        <div class="moment-img-wrapper">
+                            <img src="images/foto1.jpeg" alt="Dokumentasi 1 - Nazhwa Sava Azahra" loading="lazy">
+                            <div class="moment-overlay">
+                                <span class="zoom-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="moment-info">
+                            <span class="moment-tag">Memories</span>
+                            <h4 class="moment-caption">Momen Bersama ♡</h4>
+                            <p class="moment-sub">Dokumentasi kebersamaan yang penuh tawa dan cerita indah.</p>
+                        </div>
+                    </div>
+
+                    <!-- Photo 2 -->
+                    <div class="moment-card" onclick="openLightbox('images/foto2.jpeg', 'Good Vibes Only 🌸', 'Hangout santai pengisi energi positif di sela-sela rutinitas perkuliahan.')">
+                        <div class="moment-img-wrapper">
+                            <img src="images/foto2.jpeg" alt="Dokumentasi 2 - Nazhwa Sava Azahra" loading="lazy">
+                            <div class="moment-overlay">
+                                <span class="zoom-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="moment-info">
+                            <span class="moment-tag">Daily Life</span>
+                            <h4 class="moment-caption">Good Vibes Only 🌸</h4>
+                            <p class="moment-sub">Menikmati hari-hari santai dan waktu berharga.</p>
+                        </div>
+                    </div>
+
+                    <!-- Photo 3 -->
+                    <div class="moment-card" onclick="openLightbox('images/foto3.jpeg', 'Cherished Times ✨', 'Suasana kebersamaan hangat yang selalu dirindukan.')">
+                        <div class="moment-img-wrapper">
+                            <img src="images/foto3.jpeg" alt="Dokumentasi 3 - Nazhwa Sava Azahra" loading="lazy">
+                            <div class="moment-overlay">
+                                <span class="zoom-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="moment-info">
+                            <span class="moment-tag">Friendship</span>
+                            <h4 class="moment-caption">Cherished Times ✨</h4>
+                            <p class="moment-sub">Saling mendukung dalam setiap langkah dan perjuangan bersama.</p>
+                        </div>
+                    </div>
+
+                    <!-- Photo 4 -->
+                    <div class="moment-card" onclick="openLightbox('images/foto4.jpeg', 'Special Moments 💫', 'Eksplorasi kegiatan kampus dan dinamika seru perkuliahan di UPI Bandung.')">
+                        <div class="moment-img-wrapper">
+                            <img src="images/foto4.jpeg" alt="Dokumentasi 4 - Nazhwa Sava Azahra" loading="lazy">
+                            <div class="moment-overlay">
+                                <span class="zoom-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="moment-info">
+                            <span class="moment-tag">Campus & Fun</span>
+                            <h4 class="moment-caption">Special Moments 💫</h4>
+                            <p class="moment-sub">Setiap foto menyimpan kenangan berharga yang abadi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEXT PAGE BANNER (NO ARROWS) -->
+                <div class="page-next-banner">
+                    <div class="banner-content">
+                        <h3>Ingin Menghubungi atau Menyapa Nazhwa? 💬</h3>
+                        <p>Mari terhubung lewat Instagram, LinkedIn, email, atau kirim pesan cepat di halaman Contact.</p>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">
+                        <span>Hubungi Nazhwa</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">✦ Nazhwa Sava Azahra</span>
+                    <p class="footer-desc">Pendidikan Ilmu Komputer • Universitas Pendidikan Indonesia</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="moments.html">Moments</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Nazhwa Sava Azahra. All rights reserved.</p>
+                <p class="footer-love">Crafted with 💜 & modern aesthetic</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightboxDirectly()" aria-label="Tutup modal">&times;</button>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption-box">
+                <h4 id="lightboxTitle">Judul Momen</h4>
+                <p id="lightboxDesc">Deskripsi momen</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toastNotification">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message" id="toastMessage">Notifikasi berhasil!</span>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
